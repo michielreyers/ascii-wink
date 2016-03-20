@@ -1,2 +1,2 @@
 # ascii-wink
-Playing aroound with polymer smileys
+Playing around with polymer smileys
