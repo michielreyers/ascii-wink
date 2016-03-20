@@ -1,0 +1,29 @@
+{
+  "name": "ascii-wink",
+  "version": "1.0.0",
+  "authors": [
+    "Michiel Reyers <michielreyers@gmail.com>"
+  ],
+  "description": "Playing around with Polymer smileys.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "ascii",
+    "ascii wink",
+    "smileys"
+  ],
+  "main": "ascii-wink.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/michielreyers/ascii-wink/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+  }
+}

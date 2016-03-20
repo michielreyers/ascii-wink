@@ -1,0 +1,100 @@
+<link rel="import" href="/lib/polymer/polymer.html">
+
+<!--
+ascii wink Polymer element.
+
+Example:
+
+    <ascii-wink color="black" fill="yellow"></ascii-wink>
+
+@demo
+-->
+<dom-module id="ascii-wink">
+  <style>
+    :host {
+      --color: inherit;
+      --border-color: inherit;
+      --background-color: transparent;
+      font: bold 18px monospace;
+      letter-spacing: -3px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    :host div {
+      height
+      display: inline-block;
+      color: var(--color);
+    
+    } 
+
+    #container {
+      box-sizing: border-box;
+      height: 28px;
+      width: 28px;
+      padding: 0 1px;
+     
+      transform: rotate(90deg);
+      
+      transform-origin: 50% 50%;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      text-align: center;
+      background-color: var(--background-color);
+    }
+
+    @keyframes wink {
+      100% {border-radius: 0 0 25px 25px;}
+    }
+  </style>
+  
+  <template>
+    <div id="container">;-)</div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'ascii-wink',
+
+    properties: {
+      color: String,
+      fill: String
+    },
+
+    setColor: function() {
+      this.customStyle['--color'] = this.color;
+      this.updateStyles();
+
+      // make the bordercolor follow the color property, 
+      // also when the color is inherited from the main dom
+      this.customStyle['--border-color'] = getComputedStyle(this.$.container)['color'];
+      this.updateStyles();
+    },
+
+    setBackgroundColor: function(){
+      this.customStyle['--background-color'] = this.fill;
+      this.updateStyles();
+    },
+
+    attached: function() {
+      this.setColor();
+      this.setBackgroundColor();
+    },
+
+    attributeChanged: function(attr, oldVal, newVal) {
+  
+      switch(attr) {
+
+        case 'color': 
+          this.setColor();
+          break;
+        case 'fill': 
+          this.setBackgroundColor();
+          break;
+
+      }
+    }
+
+  });
+</script>
